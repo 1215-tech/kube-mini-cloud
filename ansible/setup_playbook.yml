@@ -1,0 +1,10 @@
+- name: Setup K8s Environment
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Ensure Minikube is running
+      command: minikube start
+    - name: Apply Kubernetes Deployment
+      command: kubectl apply -f ../k8s/deployment.yml
+    - name: Apply Kubernetes Service
+      command: kubectl apply -f ../k8s/service.yml
